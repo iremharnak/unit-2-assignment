@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unit 2 Assessment</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <h1>To Do List</h1>
+  <% if (todo.length <= 0) {%>
+    <h3>There are no To Dos yet!</h3>
+    <%}%>
+   <ul>
+     <% for (let t of todo) { %>
+      <% if (t.done === false) {%>
+        <li><%= t.todo %> - Not Done</li>
+     <% } else { %>
+        <li><%= t.todo %> - Done</li>
+     <%} %>
+     <form action="/todo/<%= t.id %>?_method=DELETE"
+      method="POST">
+      <button type="submit">Delete</button>
+    </form>
+     <%}%>
+   </ul>
+          <hr>
+          <form action="/todo/posts" method=POST>
+            <input name="newtodo">
+            <button>ADD TO DO</button>
+          </form>
+        </body>
+        </html>
+        
